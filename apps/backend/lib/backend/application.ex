@@ -1,10 +1,10 @@
-defmodule CP.Application do
+defmodule Backend.Application do
   @moduledoc """
-  The CP Application Service.
+  The Backend Application Service.
 
   The backend system business domain lives in this application.
 
-  Exposes API to clients such as the `CP.Web` application
+  Exposes API to clients such as the `Backend.Web` application
   for use in channels, controllers, and elsewhere.
   """
   use Application
@@ -13,7 +13,7 @@ defmodule CP.Application do
     import Supervisor.Spec, warn: false
 
     Supervisor.start_link([
-      supervisor(CP.Repo, []),
-    ], strategy: :one_for_one, name: CP.Supervisor)
+      supervisor(Backend.Repo, []),
+    ], strategy: :one_for_one, name: Backend.Supervisor)
   end
 end

@@ -1,7 +1,7 @@
 use Mix.Config
 
 # Configure your database
-config :backend, CP.Repo,
+config :backend, Backend.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",

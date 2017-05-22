@@ -1,4 +1,4 @@
-defmodule CP.Repo do
+defmodule Backend.Repo do
   use Ecto.Repo, otp_app: :backend
 
   @doc """

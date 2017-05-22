@@ -3,7 +3,6 @@ defmodule Backend.Scrapping.Page do
   import Ecto.Changeset
   alias Backend.Scrapping.Page
 
-
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "scrapping_pages" do
