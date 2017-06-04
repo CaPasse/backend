@@ -1,7 +1,7 @@
-defmodule CP.Web.Endpoint do
+defmodule Backend.Web.Endpoint do
   use Phoenix.Endpoint, otp_app: :backend_web
 
-  socket "/socket", CP.Web.UserSocket
+  socket "/socket", Backend.Web.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -36,7 +36,7 @@ defmodule CP.Web.Endpoint do
     key: "_backend_web_key",
     signing_salt: "CbNpLMmm"
 
-  plug CP.Web.Router
+  plug Backend.Web.Router
 
   @doc """
   Dynamically loads configuration from the system environment

@@ -5,7 +5,7 @@ defmodule Backend.Repo.Migrations.CreateBackend.Scrapping.Page do
     create table(:scrapping_pages, primary_key: false) do
       add :id, :binary_id, primary_key: true
       add :url, :string
-      add :website, :string
+      add :domain, :string
       add :data, :map
 
       timestamps()

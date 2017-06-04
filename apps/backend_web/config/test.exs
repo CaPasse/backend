@@ -2,6 +2,6 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :backend_web, CP.Web.Endpoint,
+config :backend_web, Backend.Web.Endpoint,
   http: [port: 4001],
   server: false

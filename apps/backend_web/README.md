@@ -1,4 +1,4 @@
-# CP.Web
+# Backend.Web
 
 To start your Phoenix server:
 

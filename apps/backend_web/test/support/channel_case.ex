@@ -1,4 +1,4 @@
-defmodule CP.Web.ChannelCase do
+defmodule Backend.Web.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -21,15 +21,15 @@ defmodule CP.Web.ChannelCase do
       use Phoenix.ChannelTest
 
       # The default endpoint for testing
-      @endpoint CP.Web.Endpoint
+      @endpoint Backend.Web.Endpoint
     end
   end
 
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(CP.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Backend.Repo)
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(CP.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Backend.Repo, {:shared, self()})
     end
     :ok
   end

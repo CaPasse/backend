@@ -8,7 +8,7 @@ defmodule Backend.Scrapping.Page do
   schema "scrapping_pages" do
     field :data, :map
     field :url, :string
-    field :website, :string
+    field :domain, :string
 
     timestamps()
   end
@@ -16,7 +16,7 @@ defmodule Backend.Scrapping.Page do
   @doc false
   def changeset(%Page{} = page, attrs) do
     page
-    |> cast(attrs, [:url, :website, :data])
-    |> validate_required([:url, :website, :data])
+    |> cast(attrs, [:url, :domain, :data])
+    |> validate_required([:url, :domain, :data])
   end
 end

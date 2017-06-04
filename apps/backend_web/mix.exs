@@ -1,4 +1,4 @@
-defmodule CP.Web.Mixfile do
+defmodule Backend.Web.Mixfile do
   use Mix.Project
 
   def project do
@@ -20,7 +20,7 @@ defmodule CP.Web.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {CP.Web.Application, []},
+    [mod: {Backend.Web.Application, []},
      extra_applications: [:logger, :runtime_tools]]
   end
 

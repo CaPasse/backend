@@ -7,16 +7,16 @@ use Mix.Config
 
 # General application configuration
 config :backend_web,
-  namespace: CP.Web,
-  ecto_repos: [CP.Repo],
+  namespace: Backend.Web,
+  ecto_repos: [Backend.Repo],
   generators: [binary_id: true]
 
 # Configures the endpoint
-config :backend_web, CP.Web.Endpoint,
+config :backend_web, Backend.Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Pew/FtLSFO1PzcI7cxmhonHgsu3rQv1mW6KPlDMa4/2EORlXd3efSlfo9j1Ipkzs",
-  render_errors: [view: CP.Web.ErrorView, accepts: ~w(json)],
-  pubsub: [name: CP.Web.PubSub,
+  render_errors: [view: Backend.Web.ErrorView, accepts: ~w(json)],
+  pubsub: [name: Backend.Web.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
