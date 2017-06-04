@@ -14,6 +14,7 @@ defmodule LeroyMerlin.Page do
   defp report_products([]) do end
   defp report_products([product | products]) do
     Logger.info(product["list_product_url_page"])
+    Backend.Scrapping.create_page(%{url: product["list_product_url_page"], domain: "www.leroymerlin.fr"})
     report_products(products)
   end
 

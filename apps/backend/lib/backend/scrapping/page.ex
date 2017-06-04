@@ -6,7 +6,6 @@ defmodule Backend.Scrapping.Page do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "scrapping_pages" do
-    field :data, :map
     field :url, :string
     field :domain, :string
 
@@ -16,7 +15,7 @@ defmodule Backend.Scrapping.Page do
   @doc false
   def changeset(%Page{} = page, attrs) do
     page
-    |> cast(attrs, [:url, :domain, :data])
-    |> validate_required([:url, :domain, :data])
+    |> cast(attrs, [:url, :domain,])
+    |> validate_required([:url, :domain,])
   end
 end

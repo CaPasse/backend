@@ -6,9 +6,9 @@ defmodule Backend.ScrappingTest do
   describe "pages" do
     alias Backend.Scrapping.Page
 
-    @valid_attrs %{data: %{}, url: "some url", website: "some website"}
-    @update_attrs %{data: %{}, url: "some updated url", website: "some updated website"}
-    @invalid_attrs %{data: nil, url: nil, website: nil}
+    @valid_attrs %{url: "some url", website: "some website"}
+    @update_attrs %{url: "some updated url", website: "some updated website"}
+    @invalid_attrs %{url: nil, website: nil}
 
     def page_fixture(attrs \\ %{}) do
       {:ok, page} =
@@ -31,7 +31,6 @@ defmodule Backend.ScrappingTest do
 
     test "create_page/1 with valid data creates a page" do
       assert {:ok, %Page{} = page} = Scrapping.create_page(@valid_attrs)
-      assert page.data == %{}
       assert page.url == "some url"
       assert page.website == "some website"
     end
@@ -44,7 +43,6 @@ defmodule Backend.ScrappingTest do
       page = page_fixture()
       assert {:ok, page} = Scrapping.update_page(page, @update_attrs)
       assert %Page{} = page
-      assert page.data == %{}
       assert page.url == "some updated url"
       assert page.website == "some updated website"
     end
