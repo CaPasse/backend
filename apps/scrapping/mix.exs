@@ -1,8 +1,8 @@
-defmodule LeroyMerlin.Mixfile do
+defmodule Scrapping.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :leroy_merlin,
+    [app: :scrapping,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -36,9 +36,6 @@ defmodule LeroyMerlin.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [
-      {:hound, "~> 1.0"},
-      {:scrapping, in_umbrella: true, app: false},
-    ]
+    []
   end
 end

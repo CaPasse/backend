@@ -5,7 +5,7 @@ defmodule Backend.Scrapping.Page do
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
-  schema "scrapping_pages" do
+  schema "pages" do
     field :url, :string
     field :domain, :string
 

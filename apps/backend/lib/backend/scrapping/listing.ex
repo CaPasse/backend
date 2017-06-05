@@ -3,10 +3,9 @@ defmodule Backend.Scrapping.Listing do
   import Ecto.Changeset
   alias Backend.Scrapping.Listing
 
-
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
-  schema "scrapping_listings" do
+  schema "listings" do
     field :domain, :string
     field :url, :string
 
