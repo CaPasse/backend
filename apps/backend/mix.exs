@@ -31,8 +31,11 @@ defmodule Backend.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:postgrex, ">= 0.0.0"},
-     {:ecto, "~> 2.1"}]
+    [
+      {:postgrex, ">= 0.0.0"},
+      {:ecto, "~> 2.1"},
+      {:tirexs, "~> 0.8"},
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

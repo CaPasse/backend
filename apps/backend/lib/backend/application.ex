@@ -14,6 +14,7 @@ defmodule Backend.Application do
 
     Supervisor.start_link([
       supervisor(Backend.Repo, []),
+      worker(Backend.Scrapping.Server, [])
     ], strategy: :one_for_one, name: Backend.Supervisor)
   end
 end

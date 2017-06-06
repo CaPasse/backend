@@ -30,6 +30,7 @@ defmodule Backend.Scrapping.Server do
 
   def handle_cast({:ping_page, id, data}, state) do
     Logger.info("Ping page #{id}")
+    Backend.Search.index_product(id, data)
     {:noreply, state}
   end
 
