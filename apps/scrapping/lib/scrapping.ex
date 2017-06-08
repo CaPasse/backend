@@ -12,11 +12,11 @@ defmodule Scrapping.Server do
   end
 
   def found_page(domain, url) do
-    :rpc.call(backend_node(), Backend.Scrapping, :found_page, [domain, url])
+    :rpc.cast(backend_node(), Backend.Scrapping, :found_page, [domain, url])
   end
 
   def ping_page(id, data) do
-    :rpc.call(backend_node(), Backend.Scrapping, :ping_page, [id, data])
+    :rpc.cast(backend_node(), Backend.Search, :index_product, [id, data])
   end
 
   # private

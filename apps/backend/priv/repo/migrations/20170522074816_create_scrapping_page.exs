@@ -9,6 +9,6 @@ defmodule Backend.Repo.Migrations.CreateBackend.Scrapping.Page do
 
       timestamps()
     end
-
+    create unique_index(:pages, [:url, :domain], name: :unique_url_domain_index)
   end
 end

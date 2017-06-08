@@ -8,6 +8,7 @@ defmodule LeroyMerlin.Listings do
   end
 
   defp loop do
+    Logger.info("Scrapping Leroy Merlin")
     crawl_listing()
     sleep()
     loop()
@@ -28,7 +29,7 @@ defmodule LeroyMerlin.Listings do
 
   defp sleep do
     s = 30000 + :rand.uniform(30000)
-    Logger.info("Sleeping #{s}s")
+    Logger.info("Sleeping #{s}ms")
     :timer.sleep(s)
   end
 

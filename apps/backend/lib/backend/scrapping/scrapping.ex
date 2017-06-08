@@ -28,4 +28,10 @@ defmodule Backend.Scrapping do
   def delete_page(%Page{} = page), do: Repo.delete(page)
   def change_page(%Page{} = page), do: Page.changeset(page, %{})
 
+  def found_page(domain, url) do
+    if !get_page(domain, url) do
+      create_page(%{url: url, domain: domain})
+    end
+  end
+
 end

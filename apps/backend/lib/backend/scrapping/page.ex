@@ -16,6 +16,7 @@ defmodule Backend.Scrapping.Page do
   def changeset(%Page{} = page, attrs) do
     page
     |> cast(attrs, [:url, :domain,])
+    |> unique_constraint(:unique_url_domain_constraint, name: :unique_url_domain_index)
     |> validate_required([:url, :domain,])
   end
 end
