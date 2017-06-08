@@ -4,11 +4,20 @@ defmodule Scrapping.Server do
   # API
 
   def get_next_listing(domain) do
-    :rpc.call(backend_node(), Backend.Scrapping, :get_next_listing, [domain])
+    case :rpc.call(backend_node(), Backend.Scrapping, :get_next_listing, [domain]) do
+      {:badrpc, reason} ->
+        raise "FAILED: get_next_listing"
+      ret -> ret
+    end
   end
 
   def get_next_page(domain) do
-    :rpc.call(backend_node(), Backend.Scrapping, :get_next_page, [domain])
+    case :rpc.call(backend_node(), Backend.Scrapping, :get_next_page, [domain]) do
+      {:badrpc, reason} ->
+        raise "FAILED: get_next_page"
+      ret -> ret
+    end
+
   end
 
   def found_page(domain, url) do
