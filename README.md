@@ -26,5 +26,5 @@ docker run --rm -it --name postgres -p 5432:5432 -e POSTGRES_USER=postgres -e PO
 cd apps/backend
 mix ecto.setup
 cd ../backend_web
-iex -S mix
+iex --name backend@127.0.0.1 -S mix
 ```

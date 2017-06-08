@@ -1,2 +1,0 @@
-defmodule LeroyMerlin do
-end

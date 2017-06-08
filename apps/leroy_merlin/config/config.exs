@@ -3,3 +3,5 @@
 use Mix.Config
 
 config :hound, browser: "chrome"
+# config :hound, http: [timeout: :infinity]
+config :hound, http: [recv_timeout: :infinity]

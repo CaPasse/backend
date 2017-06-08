@@ -23,8 +23,8 @@ defmodule Backend.Scrapping do
   def get_page!(id), do: Repo.get!(Page, id)
   def get_page(domain, url), do: (from l in Page, where: l.domain == ^domain, where: l.url == ^url) |> Repo.one
   def get_next_page(domain), do: (from l in Page, where: l.domain == ^domain) |> first(:updated_at) |> Repo.one!
-  def create_page(attrs \\ %{}), do: %Page{} |> Page.changeset(attrs) |> Repo.insert()
-  def update_page(%Page{} = page, attrs), do: page |> Page.changeset(attrs) |> Repo.update()
+  def create_page(attrs \\ %{}), do: %Page{} |> Page.changeset(attrs) |> Repo.insert
+  def update_page(%Page{} = page, attrs), do: page |> Page.changeset(attrs) |> Repo.update
   def delete_page(%Page{} = page), do: Repo.delete(page)
   def change_page(%Page{} = page), do: Page.changeset(page, %{})
 
