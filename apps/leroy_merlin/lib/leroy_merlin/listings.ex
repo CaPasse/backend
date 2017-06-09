@@ -38,7 +38,7 @@ defmodule LeroyMerlin.Listings do
 
   # Utils
   
-  defp listing_url(listing, offset), do: listing.url |> String.replace("[n_offset]", Integer.to_string(offset)) |> String.replace("[n_per_page]", Integer.to_string(@n_per_page))
+  defp listing_url(listing, offset), do: "#{listing.url}?resultOffset=#{offset}&resultLimit=#{@n_per_page}"
 
   defp sleep do
     s = 30000 + :rand.uniform(30000)

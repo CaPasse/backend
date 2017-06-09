@@ -8,6 +8,7 @@ defmodule Backend.Scrapping.Page do
   schema "pages" do
     field :url, :string
     field :domain, :string
+    field :n_views, :integer
 
     timestamps()
   end

@@ -6,6 +6,7 @@ defmodule Backend.Repo.Migrations.CreateBackend.Scrapping.Page do
       add :id, :binary_id, primary_key: true
       add :url, :string
       add :domain, :string
+      add :n_views, :integer
 
       timestamps()
     end

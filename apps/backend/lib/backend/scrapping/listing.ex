@@ -8,6 +8,7 @@ defmodule Backend.Scrapping.Listing do
   schema "listings" do
     field :domain, :string
     field :url, :string
+    field :n_views, :integer
 
     timestamps()
   end
