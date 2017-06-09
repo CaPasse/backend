@@ -14,5 +14,5 @@ alias Backend.Scrapping.Listing
 
 %Listing{
   "domain": "www.leroymerlin.fr",
-  "url": "/v3/p/produits/terrasse-jardin/fontaine-bassin-et-poterie/pot-de-fleurs-jardiniere-poterie-decorative-l1400853841?resultOffset=0&resultLimit=9999"
+  "url": "/v3/p/produits/terrasse-jardin/fontaine-bassin-et-poterie/pot-de-fleurs-jardiniere-poterie-decorative-l1400853841?resultOffset=[n_offset]&resultLimit=[n_per_page]"
 } |> Backend.Repo.insert!
