@@ -8,8 +8,8 @@ defmodule LeroyMerlin.Application do
     true = Node.connect(Application.fetch_env!(:leroy_merlin, :node))
 
     Supervisor.start_link([
-      worker(LeroyMerlin.Pages, []),
-      worker(LeroyMerlin.Listings, []),
+      worker(LeroyMerlin.Pages, [], restart: :permanent),
+      worker(LeroyMerlin.Listings, [], restart: :permanent),
     ], strategy: :one_for_one, name: LeroyMerlin.Supervisor)
   end
 

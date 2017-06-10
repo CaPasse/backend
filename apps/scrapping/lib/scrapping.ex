@@ -5,7 +5,7 @@ defmodule Scrapping.Server do
 
   def get_next_listing(domain) do
     case :rpc.call(backend_node(), Backend.Scrapping, :get_next_listing, [domain]) do
-      {:badrpc, reason} ->
+      {:badrpc, _reason} ->
         raise "FAILED: get_next_listing"
       ret -> ret
     end
@@ -13,7 +13,7 @@ defmodule Scrapping.Server do
 
   def get_next_page(domain) do
     case :rpc.call(backend_node(), Backend.Scrapping, :get_next_page, [domain]) do
-      {:badrpc, reason} ->
+      {:badrpc, _reason} ->
         raise "FAILED: get_next_page"
       ret -> ret
     end

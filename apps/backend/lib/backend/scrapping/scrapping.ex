@@ -16,11 +16,16 @@ defmodule Backend.Scrapping do
   def change_listing(%Listing{} = listing), do: Listing.changeset(listing, %{})
 
   def get_next_listing(domain) do
-    listing = (from l in Listing, where: l.domain == ^domain) |> first(:updated_at) |> Repo.one!
-    Listing
-    |>where(id: ^listing.id)
-    |>Repo.update_all(inc: [n_views: 1], set: [updated_at: NaiveDateTime.utc_now])
-    listing
+    listing = (from l in Listing, where: l.domain == ^domain) |> first(:updated_at) |> Repo.one
+    if listing != nil do
+      Listing
+      |> where(id: ^listing.id)
+      |> Repo.update_all(inc: [n_views: 1], set: [updated_at: NaiveDateTime.utc_now])
+
+      {:ok, listing}
+    else
+      {:nok}
+    end
   end
 
 
@@ -35,11 +40,16 @@ defmodule Backend.Scrapping do
   def change_page(%Page{} = page), do: Page.changeset(page, %{})
 
   def get_next_page(domain) do
-    page = (from l in Page, where: l.domain == ^domain) |> first(:updated_at) |> Repo.one!
-    Page
-    |>where(id: ^page.id)
-    |>Repo.update_all(inc: [n_views: 1], set: [updated_at: NaiveDateTime.utc_now])
-    page
+    page = (from l in Page, where: l.domain == ^domain) |> first(:updated_at) |> Repo.one
+    if page != nil do
+      Page
+      |> where(id: ^page.id)
+      |> Repo.update_all(inc: [n_views: 1], set: [updated_at: NaiveDateTime.utc_now])
+
+      {:ok, page}
+    else
+      {:nok}
+    end
   end
 
   def found_page(domain, url) do

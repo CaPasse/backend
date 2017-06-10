@@ -38,7 +38,7 @@ defmodule LeroyMerlin.Mixfile do
   defp deps do
     [
       {:hound, "~> 1.0"},
-      {:scrapping, in_umbrella: true, app: false},
+      {:scrapping, in_umbrella: true},
     ]
   end
 end

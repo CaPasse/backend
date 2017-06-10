@@ -10,8 +10,7 @@ defmodule LeroyMerlin.Listings do
   end
 
   defp loop() do
-    Logger.info("Scrapping Leroy Merlin")
-
+    Logger.info("LeroyMerlin.Listings.loop")
     total = crawl_listing(0)
     Logger.info("LeroyMerlin: Found #{total} pages")
 
@@ -20,14 +19,24 @@ defmodule LeroyMerlin.Listings do
   end
 
   defp crawl_listing(offset, total \\ 0) do
-    Hound.start_session()
-    listing = Scrapping.Server.get_next_listing("www.leroymerlin.fr")
-    url = listing_url(listing, offset)
-    Logger.info("Listing: #{url}")
-    navigate_to("https://www.leroymerlin.fr#{url}")
-    tc_vars = execute_script("return tc_vars")
-    Hound.end_session()
-    send_listing(tc_vars["list_products"], offset, total)
+
+    with {:ok, listing} <- Scrapping.Server.get_next_listing("www.leroymerlin.fr") do
+      url = listing_url(listing, offset)
+
+      Hound.start_session()
+
+      Logger.info("Listing: #{url}")
+      navigate_to("https://www.leroymerlin.fr#{url}")
+
+      tc_vars = execute_script("return tc_vars")
+
+      Hound.end_session()
+
+      send_listing(tc_vars["list_products"], offset, total)
+    else
+      _ -> total
+    end
+
   end
 
   defp send_listing([], _offset, total), do: total
