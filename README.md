@@ -4,8 +4,16 @@
 
 ### selenium
 
+1. Start a hub:
+
 ```sh
-docker run --rm -it --name selenium -p 4444:4444 selenium/standalone-chrome
+docker run --rm -it --name selenium -p 4444:4444 selenium/hub
+```
+
+2. Then multiple nodes:
+
+```sh
+docker run --rm -it --link selenium:hub selenium/node-chrome
 ```
 
 ### ElasticSearch
