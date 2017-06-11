@@ -50,7 +50,7 @@ defmodule LeroyMerlin.Listings do
   defp listing_url(listing, offset), do: "#{listing.url}?resultOffset=#{offset}&resultLimit=#{@n_per_page}"
 
   defp sleep do
-    s = 30000 + :rand.uniform(30000)
+    s = 60000 + :rand.uniform(30000)
     Logger.info("Sleeping #{s}ms")
     :timer.sleep(s)
   end

@@ -39,8 +39,11 @@ defmodule LeroyMerlin.Pages do
   end
 
   defp get_description(data) do
-    desc_elem = find_element(:class, "desc")
-    Map.put(data, "description", inner_text(desc_elem))
+    with {:ok, desc_elem} <- search_element(:class, "desc") do
+      Map.put(data, "description", inner_text(desc_elem))
+    else
+      _ -> data
+    end
   end
 
   defp get_images(data) do
