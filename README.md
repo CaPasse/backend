@@ -36,3 +36,10 @@ mix ecto.setup
 cd ../backend_web
 iex --name backend@127.0.0.1 -S mix
 ```
+
+### Scrapper
+
+```sh
+cd apps/leroy_merlin
+iex --name leroy_merlin1@127.0.0.1 -S mix
+```
